@@ -1,0 +1,28 @@
+<div class="container"> 
+<div class="jumbotron">
+    <div class="container">
+      <h1 class="display-4">{{title}}</h1>
+      <p class="lead">Submit budgets and track them!</p>
+      <p><a class="btn btn-primary" routerLink="budgets/new" role="button">New Budget</a></p>
+    </div>
+  </div>
+</div>
+<div class="main container ">
+<div class="container-lg">
+<img src="https://media.istockphoto.com/id/495853751/photo/budget-concept.jpg?s=612x612&w=0&k=20&c=KK4PMk7UzB6Wg027uO9WgzY2muX32R3A8aYvu-bfx-4=" alt="">
+</div>
+<h1>BudgetApp: Track your finances, categorize expenses, and calculate income and outcome totals with ease. Stay in control of your budget!</h1>
+</div>
+
+
+<div class="container mt-4 mb-4">
+  <div class="container text-success bg-success-subtle border border-success-subtle rounded-3 d-flex">
+  <h1>The total Income: +</h1>
+  <h1>{{totalIncome}} Ft.</h1>
+</div>
+<div class="container text-danger bg-danger-subtle border border-danger-subtle rounded-3 mt-4 mb-4 d-flex">
+  <h1>The total outcome: - </h1>
+  <h1>{{totalOutcome}} Ft.</h1>
+  </div>
+</div>
+

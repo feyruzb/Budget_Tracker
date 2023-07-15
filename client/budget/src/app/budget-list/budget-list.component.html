@@ -1,0 +1,44 @@
+<div class="container">
+<h2 class="display-2 my-3">Budgets</h2>
+<div class="container bg-primary-subtle border border-primary-subtle rounded-3 w-50 p-3 ">
+  <small>Note: to edit a budget click on it, double click to close.</small>
+</div>
+
+<p><a class="btn btn-primary" routerLink="/budgets/new" role="button">New Badget</a></p>
+
+<app-status-filter [status]="status" (statusChange)="handleStatusClick($event)" ></app-status-filter>
+<div class="row">
+
+<div class="list-group mt-1 col">
+  <a
+  *ngFor="let budget of filterBudget"
+  (click)="handleBudgetClick(budget)"
+    class="list-group-item list-group-item-action"  [class.list-group-item-danger]="budget.budget < 0" [class.list-group-item-success]="budget.budget > 0" [class.list-group-item-warning]="budget.budget == 0"
+  >
+  <!-- routerLink="/budgets/1" -->
+    <div class="d-flex w-100 justify-content-between align-items-center">
+      <h5 class="mb-1">{{budget.title}}</h5>
+      <span class ="badge"
+      [class.bg-danger]="budget.budget < 0"
+      [class.bg-success]="budget.budget > 0"
+      [class.bg-warning]="budget.budget == 0"
+      >
+      {{budget.budget > 0 ? "good" : ""}}
+      {{budget.budget < 0 ? "bad" : ""}}
+      {{budget.budget == 0 ? "neutral" : ""}}
+      
+      </span>
+    </div>
+    <p class="mb-1">
+      <b>Category:</b> {{budget.category}}
+    </p>
+    <small>
+      <b>Budget:</b> {{budget.budget}}
+    </small>
+  </a>
+</div>
+<div class="col" *ngIf="selectedBudget && showEdit">
+  <app-edit [Budget]="selectedBudget" (refresh)="handleBudgetsChange($event)"    ></app-edit>
+</div>
+</div>
+</div>
